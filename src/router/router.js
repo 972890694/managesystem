@@ -7,9 +7,13 @@ import index from '../views/index/index.vue'
 import users from '../components/index/users.vue'
 import roles from '../components/index/roles.vue'
 import rights from '../components/index/rights.vue'
-import goods from '../components/index/goods.vue'
+import goods from '../components/index/goods/goods.vue'
 import categories from '../components/index/categories.vue'
 import orders from '../components/index/orders.vue'
+import params from '../components/index/params.vue'
+
+import goodsIndex from '../components/index/goods/components/index.vue'
+import addgoods from '../components/index/goods/components/addgoods.vue'
 
 const router = new VueRouter({
     routes: [
@@ -32,9 +36,23 @@ const router = new VueRouter({
                 { path: '/users', component: users },
                 { path: '/roles', component: roles },
                 { path: '/rights', component: rights },
-                { path: '/goods', component: goods },
+                {
+                    path: '/goods',
+                    component: goods,
+                    children: [
+                        {
+                            path: '',
+                            component: goodsIndex
+                        },
+                        {
+                            path: 'add',
+                            component: addgoods
+                        }
+                    ]
+                },
                 { path: '/categories', component: categories },
                 { path: '/orders', component: orders },
+                { path: '/params', component: params }
             ]
         }
     ]

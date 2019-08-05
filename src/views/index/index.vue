@@ -29,7 +29,7 @@
                 v-for="(list,idx) in item.children"
                 :key="idx"
                 class="el-icon-menu"
-                :index="list.path"
+                :index="'/' + list.path"
               >{{ list.authName }}</el-menu-item>
             </el-submenu>
           </el-menu>

@@ -203,6 +203,7 @@ export default {
     // 封装 请求 users 的方法
     getUsers() {
       http.$get("/users", this.sendData).then(backData => {
+        
         this.tableData = backData.data.data.users;
 
         this.total = backData.data.data.total;
