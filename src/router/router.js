@@ -11,6 +11,7 @@ import goods from '../components/index/goods/goods.vue'
 import categories from '../components/index/categories.vue'
 import orders from '../components/index/orders.vue'
 import params from '../components/index/params.vue'
+import reports from '../components/index/reports.vue'
 
 import goodsIndex from '../components/index/goods/components/index.vue'
 import addgoods from '../components/index/goods/components/addgoods.vue'
@@ -52,7 +53,8 @@ const router = new VueRouter({
                 },
                 { path: '/categories', component: categories },
                 { path: '/orders', component: orders },
-                { path: '/params', component: params }
+                { path: '/params', component: params },
+                { path: '/reports', component: reports }
             ]
         }
     ]

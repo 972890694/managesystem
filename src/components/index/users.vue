@@ -168,8 +168,8 @@ export default {
 
       dialogFormVisibleAssign: false,
       formAssign: {},
-      rid: '',
-      
+      rid: "",
+
       rolesList: [],
 
       rules: {
@@ -203,7 +203,6 @@ export default {
     // 封装 请求 users 的方法
     getUsers() {
       http.$get("/users", this.sendData).then(backData => {
-        
         this.tableData = backData.data.data.users;
 
         this.total = backData.data.data.total;
@@ -279,6 +278,13 @@ export default {
 
     // 删除用户
     delData(id) {
+      if (id == 500) {
+        return this.$message({
+          type: "error",
+          message: '禁止删除主管'
+        });
+      }
+
       this.$confirm("确认要删除该用户么？", "提示", {
         confirmButtonText: "确定",
 
@@ -314,25 +320,21 @@ export default {
     assignUser(id) {
       // 显示模态框
       this.dialogFormVisibleAssign = true;
-      
-      http.$get(`users/${id}`)
-          .then(v => {
-            console.log(v);
-            this.rid = v.data.data.rid;
-            this.formAssign.username = v.data.data.username
-          })
+
+      http.$get(`users/${id}`).then(v => {
+        console.log(v);
+        this.rid = v.data.data.rid;
+        this.formAssign.username = v.data.data.username;
+      });
     },
 
     getRoles() {
-      http.$get(`roles`)
-          .then(v => {;
-            this.rolesList = v.data.data
-          })
+      http.$get(`roles`).then(v => {
+        this.rolesList = v.data.data;
+      });
     },
     // 分配用户角色发送请求
-    updateRole() {
-
-    }
+    updateRole() {}
   },
   created() {
     this.getUsers();

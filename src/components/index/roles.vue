@@ -206,6 +206,13 @@ export default {
 
     // 删除角色
     delRoles(id) {
+      if (id == 30) {
+        return this.$message({
+          type: "error",
+          message: "禁止删除主管"
+        });
+      }
+
       this.$confirm("确认删除该角色吗", "提示", {
         confirmButtonText: "确定",
 
@@ -275,7 +282,7 @@ export default {
           rids
         })
         .then(backData => {
-          if(backData.data.meta.status == 200) {
+          if (backData.data.meta.status == 200) {
             this.getRoles();
           }
         });

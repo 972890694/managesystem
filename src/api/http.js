@@ -3,7 +3,7 @@ import Vue from 'vue'
 import router from '../router/router'
 
 export const http = axios.create({
-    baseURL: 'http://localhost:8888/api/private/v1/'
+    baseURL: 'http://139.155.131.94:8888/api/private/v1/'
 })
 
 http.login = ({ username, password }) => {

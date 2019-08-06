@@ -1,6 +1,6 @@
 <template>
   <div>
-    <crumbs :first="'权限管理'" :second="'权限列表'"></crumbs>
+    <crumbs :first="'订单管理'" :second="'订单列表'"></crumbs>
     <grid></grid>
     <page></page>
   </div>
